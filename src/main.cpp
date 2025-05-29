@@ -19,16 +19,20 @@ int main() {
         std::cout << "Seleccione una opción: ";
         std::cin >> opcion;
 
+        // Menu de opciones para interactuar con el vector
         switch (opcion) {
             case 1:
+                // Agregar un elemento al vector
                 std::cout << "Ingrese un valor: ";
                 std::cin >> valor;
                 v.push(valor);
                 break;
             case 2:
+                // Eliminar el último elemento del vector
                 v.pop();
                 break;
             case 3:
+                // Acceso a un elemento por índice
                 std::cout << "Ingrese el índice que desea buscar: ";
                 std::cin >> indice;
                 if (indice >= 0 && indice < v.size()) {
@@ -38,9 +42,11 @@ int main() {
                 }
                 break;
             case 4:
+                // Mostrar el tamaño y la capacidad del vector
                 std::cout << "El tamaño del vector es: " << v.size() << ", la capacidad es: " << v.capacity() << "\n";
                 break;
             case 5: {
+                // Redimensionar el vector
                 int nuevaCapacidad;
                 std::cout << "Ingrese una nueva capacidad: ";
                 std::cin >> nuevaCapacidad;
@@ -48,15 +54,18 @@ int main() {
                 break;
             }
             case 6:
+            // Limpiar el vector, elimina todos los elementos pero no cambia la capacidad
                 v.clear();
                 break;
             case 0:
+                // Salir del programa
                 std::cout << "Saliendo...\n";
                 break;
             default:
+                // En caso de que el usuario ingrese una opción no válida
                 std::cout << "Opción no válida.\n";
         }
-    } while (opcion != 0);
+    } while (opcion != 0); // Bucle para continuar hasta que el usuario decida salir
 
     return 0;
 }
