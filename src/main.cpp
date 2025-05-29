@@ -1,6 +1,7 @@
-#include "includes/vector.h"
+#include "../includes/vector.h"
+#include <iostream>
 
-int main(){
+int main() {
     Vector v;
     int opcion;
     double valor;
@@ -31,20 +32,21 @@ int main(){
                 std::cout << "Ingrese el índice que desea buscar: ";
                 std::cin >> indice;
                 if (indice >= 0 && indice < v.size()) {
-                    std::cout << "Valor en índice: " << indice << ": " << v[indice] << "\n";
+                    std::cout << "Valor en índice (" << indice << "): " << v[indice] << "\n";
                 } else {
                     std::cout << "Índice fuera de rango. No se encuentra. Intente nuevamente.\n";
                 }
                 break;
             case 4:
-                std::cout << "Tamaño es: " << v.size() << ", Capacidad es: " << v.capacity() << "\n";
+                std::cout << "El tamaño del vector es: " << v.size() << ", la capacidad es: " << v.capacity() << "\n";
                 break;
-            case 5:
+            case 5: {
                 int nuevaCapacidad;
                 std::cout << "Ingrese una nueva capacidad: ";
                 std::cin >> nuevaCapacidad;
                 v.resize(nuevaCapacidad);
                 break;
+            }
             case 6:
                 v.clear();
                 break;
@@ -55,5 +57,6 @@ int main(){
                 std::cout << "Opción no válida.\n";
         }
     } while (opcion != 0);
-    
+
+    return 0;
 }
