@@ -7,7 +7,7 @@ int main(){
     int indice;
 
     do {
-        std::cout << "\nMenú de opciones:\n";
+        std::cout << "\n--- Menú de opciones ---:\n";
         std::cout << "1. Agregar elemento\n";
         std::cout << "2. Eliminar último elemento\n";
         std::cout << "3. Acceder a un elemento\n";
@@ -28,20 +28,20 @@ int main(){
                 v.pop();
                 break;
             case 3:
-                std::cout << "Ingrese el índice: ";
+                std::cout << "Ingrese el índice que desea buscar: ";
                 std::cin >> indice;
                 if (indice >= 0 && indice < v.size()) {
-                    std::cout << "Valor en índice " << indice << ": " << v[indice] << "\n";
+                    std::cout << "Valor en índice: " << indice << ": " << v[indice] << "\n";
                 } else {
-                    std::cout << "Índice fuera de rango.\n";
+                    std::cout << "Índice fuera de rango. No se encuentra. Intente nuevamente.\n";
                 }
                 break;
             case 4:
-                std::cout << "Tamaño: " << v.size() << ", Capacidad: " << v.capacity() << "\n";
+                std::cout << "Tamaño es: " << v.size() << ", Capacidad es: " << v.capacity() << "\n";
                 break;
             case 5:
                 int nuevaCapacidad;
-                std::cout << "Ingrese nueva capacidad: ";
+                std::cout << "Ingrese una nueva capacidad: ";
                 std::cin >> nuevaCapacidad;
                 v.resize(nuevaCapacidad);
                 break;
