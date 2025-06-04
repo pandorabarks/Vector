@@ -46,7 +46,7 @@ int main() {
                 std::cout << "El tamaño del vector es: " << v.size() << ", la capacidad es: " << v.capacity() << "\n";
                 break;
             case 5: {
-                // Redimensiona el vector a una nueva capacidad, solo que solo cambia el tamaño lógico, pero no la capacidad física del vector. Esto es un bug que no pudimos solucionar a tiempo.
+                // Redimensiona el vector a una nueva capacidad, solo que solo cambia el tamaño lógico, pero no la capacidad física del vector.
                 int nuevaCapacidad;
                 std::cout << "Ingrese una nueva capacidad: ";
                 std::cin >> nuevaCapacidad;

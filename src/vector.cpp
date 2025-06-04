@@ -88,7 +88,6 @@ void Vector::clear() {
 }
 
 // Redimensiona el vector a una nueva capacidad, si el tamaño que se ingresa es menor a la capacidad actual, no hace nada más que redimensionar el tamaño lógico.
-// Hubiera estado genial poder redimensionar la capacidad también, pero por más que lo intentamos, no pudimos resolverlo a tiempo.
 void Vector::redimensionar(int NuevaCapacidad) {
     if (NuevaCapacidad <= capacidad)
         return;
