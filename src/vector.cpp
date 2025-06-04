@@ -3,16 +3,16 @@
 #include <algorithm> // Para std::copy
 #include <iostream>
 
-// Implementación de la clase Vector con funciones miembro
+// Este es el archivo que implementa las funciones miembro de la clase Vector.
+
 Vector::Vector() : datos(nullptr), capacidad(0), sizeVec(0) {}
 
-// Constructor por defecto que inicializa un vector vacío.
+// Constructor por defecto
 Vector::Vector(int CapacidadInicial) : datos(nullptr), capacidad(CapacidadInicial), sizeVec(0) {
     if (capacidad > 0)
         datos = new double[capacidad];
 }
 
-// Constructor que inicializa el vector con una capacidad específica.
 Vector::Vector(const Vector& otro) : datos(nullptr), capacidad(otro.capacidad), sizeVec(otro.sizeVec) {
     if (capacidad > 0) {
         datos = new double[capacidad];
@@ -25,7 +25,7 @@ Vector::~Vector() {
     delete[] datos;
 }
 
-// Destructor que libera la memoria asignada al vector.
+// Destructor
 Vector& Vector::operator=(const Vector& otro) {
     if (this != &otro) {
         delete[] datos;
@@ -37,21 +37,22 @@ Vector& Vector::operator=(const Vector& otro) {
     return *this;
 }
 
-// Operador de asignación que copia los datos de otro vector al actual.
+// Operadores que permiten acceder a los elementos del vector mediante un índice, tanto para lectura como para escritura.
 double& Vector::operator[](int indice) {
-    if (indice < 0 || indice >= sizeVec)
+    if (indice < 0 || indice >= sizeVec) {
+        // Throw es un método que lanza una excepción si el índice está fuera de rango.
         throw std::out_of_range("Índice fuera de rango");
+    }
     return datos[indice];
 }
 
-// Operador de subíndice que permite acceder y modificar los elementos del vector.
+
 const double& Vector::operator[](int indice) const {
     if (indice < 0 || indice >= sizeVec)
         throw std::out_of_range("Índice fuera de rango");
     return datos[indice];
 }
 
-// Operador de subíndice constante que permite acceder a los elementos del vector sin modificarlos.
 void Vector::push(double valor) {
     if (sizeVec == capacidad)
         redimensionar(capacidad == 0 ? 1 : capacidad * 2);
@@ -64,7 +65,7 @@ void Vector::pop() {
         --sizeVec;
 }
 
-// Elimina el último elemento del vector, reduciendo su tamaño lógico.
+// Elimina el último elemento del vector
 int Vector::size() const {
     return sizeVec;
 }
@@ -74,7 +75,7 @@ int Vector::capacity() const {
     return capacidad;
 }
 
-// Cambia el tamaño lógico del vector. Si el nuevo tamaño es mayor que la capacidad actual, redimensiona el vector.
+// Cambia el tamaño lógico del vector.
 void Vector::resize(int n) {
     if (n > capacidad)
         redimensionar(n);
@@ -87,6 +88,7 @@ void Vector::clear() {
 }
 
 // Redimensiona el vector a una nueva capacidad, si el tamaño que se ingresa es menor a la capacidad actual, no hace nada más que redimensionar el tamaño lógico.
+// Hubiera estado genial poder redimensionar la capacidad también, pero por más que lo intentamos, no pudimos resolverlo a tiempo.
 void Vector::redimensionar(int NuevaCapacidad) {
     if (NuevaCapacidad <= capacidad)
         return;

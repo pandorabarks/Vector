@@ -12,24 +12,29 @@ private:
     void redimensionar(int NuevaCapacidad);
 
 public:
-    Vector(); // Constructor por defecto
-    Vector(int CapacidadInicial); // Constructor paramétrico
-    Vector(const Vector& otro); // Constructor copia
-    ~Vector(); // Destructor
+    // Constructores (por defecto, paramétrico, copia) y destructor
+    Vector();
+    Vector(int CapacidadInicial); 
+    Vector(const Vector& otro); 
+    ~Vector();
 
     Vector& operator=(const Vector& otro); // Operador de asignación
 
-    double& operator[](int indice); // Acceso por subíndice (modificable)
-    const double& operator[](int indice) const; // Acceso por subíndice (const)
+    // Acceso por subíndice (constante y modificable)
+    double& operator[](int indice); 
+    const double& operator[](int indice) const;
 
-    void push(double valor); // Agrega un valor al final
-    void pop(); // Elimina el último elemento
+    // Agrega y elimina elementos
+    void push(double valor);
+    void pop();
 
-    int size() const; // Número de elementos
-    int capacity() const; // Capacidad actual
+    int size() const;
+    int capacity() const;
 
-    void resize(int n); // Cambia el tamaño lógico
-    void clear(); // Elimina todos los elementos
+    void resize(int n);
+    void clear();
 };
 
 #endif // VECTOR_H
+
+// Nota para el equipo: Este archivo es de cabecera, no debería contener implementaciones de funciones miembro.

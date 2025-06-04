@@ -1,5 +1,5 @@
 #include "../includes/vector.h"
-#include <iostream>
+#include "../src/vector.cpp"
 
 int main() {
     Vector v;
@@ -8,6 +8,7 @@ int main() {
     int indice;
 
     do {
+        // Este es el menú de opciones que se mostrará al usuario
         std::cout << "\n--- Menú de opciones ---:\n";
         std::cout << "1. Agregar elemento\n";
         std::cout << "2. Eliminar último elemento\n";
@@ -19,7 +20,6 @@ int main() {
         std::cout << "Seleccione una opción: ";
         std::cin >> opcion;
 
-        // Menu de opciones para interactuar con el vector
         switch (opcion) {
             case 1:
                 // Agregar un elemento al vector
@@ -32,7 +32,7 @@ int main() {
                 v.pop();
                 break;
             case 3:
-                // Acceso a un elemento por índice
+                // Acceso a un elemento por índice, recordando que en arreglos y vectores, el índice comienza en 0.
                 std::cout << "Ingrese el índice que desea buscar: ";
                 std::cin >> indice;
                 if (indice >= 0 && indice < v.size()) {
@@ -42,11 +42,11 @@ int main() {
                 }
                 break;
             case 4:
-                // Mostrar el tamaño y la capacidad del vector
+                // Muestra el tamaño y la capacidad del vector
                 std::cout << "El tamaño del vector es: " << v.size() << ", la capacidad es: " << v.capacity() << "\n";
                 break;
             case 5: {
-                // Redimensionar el vector
+                // Redimensiona el vector a una nueva capacidad, solo que solo cambia el tamaño lógico, pero no la capacidad física del vector. Esto es un bug que no pudimos solucionar a tiempo.
                 int nuevaCapacidad;
                 std::cout << "Ingrese una nueva capacidad: ";
                 std::cin >> nuevaCapacidad;
@@ -54,7 +54,7 @@ int main() {
                 break;
             }
             case 6:
-            // Limpiar el vector, elimina todos los elementos pero no cambia la capacidad
+            // Limpia el vector
                 v.clear();
                 break;
             case 0:
